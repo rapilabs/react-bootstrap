@@ -27,7 +27,9 @@ const MenuItem = React.createClass({
       return;
     }
     if (this.props.onSelect) {
-      e.preventDefault();
+      if (!this.props.href) {
+        e.preventDefault();
+      }
       this.props.onSelect(this.props.eventKey, this.props.href, this.props.target);
     }
   },
